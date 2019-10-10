@@ -1,0 +1,30 @@
+{%  extends "base.html" %}
+{% block contents %}
+<div class = "row mt-5">
+    <div class = "col-12">
+        <table class = "table table-light">
+            <thead class = "thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>상품명</th>
+                    <th>이미지</th>
+                </tr>
+            </thead>
+            <tbody class="text-dark">
+                {% for good in shop_list %}                
+                    <tr>
+                        <th>{{good.id}}</th>
+                        <td>{{good.name}}</td>
+                        <td>
+                            {% if good.photo %}
+                            <img src="{{ good.photo.url }}" alt="" width="170" height="">
+                            <!-- <h6>{{good.photo.url}}</h6> -->
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
